@@ -25,7 +25,7 @@
         <!-- Bootstrap tooltips -->
         <script type="text/javascript" src="js/popper.min.js"></script>
         
-       <script src="js/app.js]" defer></script>
+       <script src="js/app.js" defer></script>
 
        
     </head>
