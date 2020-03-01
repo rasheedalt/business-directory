@@ -20,7 +20,7 @@ class CreateBusinessCategoryTable extends Migration
             $table->timestamps();
 
             $table->foreign('business_id')->references('id')->on('businesses');
-            $table->foreign('category_id')->references('id')->on('category');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
