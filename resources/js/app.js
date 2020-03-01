@@ -10,8 +10,8 @@ Vue.use(VueRouter);
 Vue.use(axios);
 
 
-axios.defaults.baseURL = 'http://localhost:8000/api';
-axios.defaults.headers.common['Authorization'] = '';
+axios.defaults.baseURL = 'https://business-listings.herokuapp.com/api';
+//axios.defaults.headers.common['Authorization'] = '';
 
 
 import App from './App.vue';

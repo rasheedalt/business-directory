@@ -54891,8 +54891,8 @@ __webpack_require__.r(__webpack_exports__);
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 Vue.use(axios__WEBPACK_IMPORTED_MODULE_0___default.a);
-axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.baseURL = 'http://localhost:8000/api';
-axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common['Authorization'] = '';
+axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.baseURL = 'https://business-listings.herokuapp.com/api'; //axios.defaults.headers.common['Authorization'] = '';
+
 
 
 
