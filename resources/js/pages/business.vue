@@ -24,11 +24,10 @@
                                             <p>{{business.phone}}</p>
                                             <p><span v-if="business.active == 1" class="btn btn-success">Active</span>
                                             <span v-else class="btn btn-danger"> Inactive </span></p>
-                                            <p><b>Categories</b></p>
-
-                                            <p>
+                                            
+                                            <p class="p-3">
                                                 <button v-if="business.active == 0"  class="btn btn-success" @click.prevent="toggleActive(business.active+1)">Activate</button>
-                                            <button v-else class="btn btn-danger" @click.prevent="toggleActive(business.active-1)"> Deactivate </button></p>
+                                                <button v-else class="btn btn-danger" @click.prevent="toggleActive(business.active-1)"> Deactivate </button></p>
                                             <p><b>Categories</b></p>
                                             <p>
                                                 <ul v-for="bus in business.category" :key="bus.id">
