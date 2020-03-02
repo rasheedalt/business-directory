@@ -92,6 +92,14 @@ class BusinessController extends Controller
         return $this->response('success', 'fetch successfully', $business);
     }
 
+    public function toggleActive(Request $request)
+    {
+        $business = Business::find($request->id);
+        $business->active = $request->status;
+        $business->save();
+        return $this->response('success', 'updated successfully', $business);
+    }
+
     public function addDefaultImage($business_id)
     {
         $image = new Image;

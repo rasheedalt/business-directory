@@ -1900,6 +1900,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1913,10 +1918,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get("/business/".concat(this.id)).then(function (res) {
-      _this.business = res.data.data;
-      console.log(_this.business);
-    });
+    this.getBusiness();
     axios.get("/category").then(function (res) {
       _this.categories = res.data.data;
     });
@@ -1933,6 +1935,26 @@ __webpack_require__.r(__webpack_exports__);
           _this2.success = true;
         }
       });
+      this.getBusiness();
+    },
+    getBusiness: function getBusiness() {
+      var _this3 = this;
+
+      axios.get("/business/".concat(this.id)).then(function (res) {
+        _this3.business = res.data.data;
+      });
+    },
+    toggleActive: function toggleActive(present) {
+      var _this4 = this;
+
+      var stat = present;
+      axios.post("/business/toggle-active", {
+        id: this.id,
+        status: stat
+      }).then(function (res) {
+        _this4.business = res.data.data;
+      });
+      this.getBusiness();
     }
   }
 });
@@ -38920,6 +38942,42 @@ var render = function() {
                       _vm._v(" "),
                       _c("p", [_c("b", [_vm._v("Categories")])]),
                       _vm._v(" "),
+                      _c("p", [
+                        _vm.business.active == 0
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-success",
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.toggleActive(
+                                      _vm.business.active + 1
+                                    )
+                                  }
+                                }
+                              },
+                              [_vm._v("Activate")]
+                            )
+                          : _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger",
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.toggleActive(
+                                      _vm.business.active - 1
+                                    )
+                                  }
+                                }
+                              },
+                              [_vm._v(" Deactivate ")]
+                            )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [_c("b", [_vm._v("Categories")])]),
+                      _vm._v(" "),
                       _c(
                         "p",
                         _vm._l(_vm.business.category, function(bus) {
@@ -55064,14 +55122,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************!*\
   !*** ./resources/js/pages/business.vue ***!
   \*****************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _business_vue_vue_type_template_id_6a2f9629_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./business.vue?vue&type=template&id=6a2f9629&scoped=true& */ "./resources/js/pages/business.vue?vue&type=template&id=6a2f9629&scoped=true&");
 /* harmony import */ var _business_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./business.vue?vue&type=script&lang=js& */ "./resources/js/pages/business.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _business_vue_vue_type_style_index_0_id_6a2f9629_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business.vue?vue&type=style&index=0&id=6a2f9629&scoped=true&lang=css& */ "./resources/js/pages/business.vue?vue&type=style&index=0&id=6a2f9629&scoped=true&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _business_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _business_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _business_vue_vue_type_style_index_0_id_6a2f9629_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business.vue?vue&type=style&index=0&id=6a2f9629&scoped=true&lang=css& */ "./resources/js/pages/business.vue?vue&type=style&index=0&id=6a2f9629&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -55103,7 +55162,7 @@ component.options.__file = "resources/js/pages/business.vue"
 /*!******************************************************************!*\
   !*** ./resources/js/pages/business.vue?vue&type=script&lang=js& ***!
   \******************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55546,8 +55605,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\Users\hp\Desktop\init2\iniit\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! c:\Users\hp\Desktop\init2\iniit\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\hp\Desktop\init2\iniit\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\hp\Desktop\init2\iniit\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

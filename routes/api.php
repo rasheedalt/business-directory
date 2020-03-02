@@ -31,6 +31,7 @@ Route::group(['prefix' => 'auth'], function(){
           Route::get('/', 'BusinessController@index');
           Route::get('/{id}', 'BusinessController@show');
           Route::post('/create', 'BusinessController@create');
+          Route::post('/toggle-active', 'BusinessController@toggleActive');
           Route::post('/edit/{id}', 'BusinessController@edit');
           Route::post('/delete/{id}', 'BusinessController@destroy');
           Route::post('/addCategory', 'BusinessController@addCategory');

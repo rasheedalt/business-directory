@@ -25,6 +25,11 @@
                                             <p><span v-if="business.active == 1" class="btn btn-success">Active</span>
                                             <span v-else class="btn btn-danger"> Inactive </span></p>
                                             <p><b>Categories</b></p>
+
+                                            <p>
+                                                <button v-if="business.active == 0"  class="btn btn-success" @click.prevent="toggleActive(business.active+1)">Activate</button>
+                                            <button v-else class="btn btn-danger" @click.prevent="toggleActive(business.active-1)"> Deactivate </button></p>
+                                            <p><b>Categories</b></p>
                                             <p>
                                                 <ul v-for="bus in business.category" :key="bus.id">
                                                     <li >
@@ -78,11 +83,7 @@ export default {
         }
     },
     mounted(){
-        axios.get(`/business/${this.id}`)
-            .then( res => { 
-                this.business = res.data.data;
-                console.log(this.business)
-            })   
+        this.getBusiness();
 
         axios.get(`/category`)
             .then( res => { 
@@ -98,6 +99,21 @@ export default {
                         this.success = true
                     }
                 })
+        this.getBusiness();
+        },
+        getBusiness(){
+             axios.get(`/business/${this.id}`)
+            .then( res => { 
+                this.business = res.data.data;
+            })  
+        },
+        toggleActive(present){
+            var stat = present
+             axios.post(`/business/toggle-active`, { id: this.id, status: stat })
+            .then( res => { 
+                this.business = res.data.data;
+            })  
+            this.getBusiness();
         }
     }
 }
